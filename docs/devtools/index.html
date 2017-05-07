@@ -1,0 +1,806 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Deep Dive into Chrome DevTools</title>
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/black.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+    <link rel="stylesheet" href="css/custom.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+</head>
+<body>
+<div class="reveal">
+    <div class="slides">
+        <section>
+            <h2>Deep Dive into Chrome DevTools</h2>
+            <h4>@Webapp Builders Meetup</h4>
+            <p>Jull Weber</p>
+            <small><a href="mailto:jull@monkeykodeagency.com">jull@monkeykodeagency.com</a><br>
+                My company:<a href="http://monkeykodeagency.com" target="_blank"> Monkey Kode Agency</a></small>
+            <p></p>
+        </section>
+        <section>
+
+            <div style="width:40%;float:left">
+                <img src="images/profile.jpg" alt="">
+                <h6>Jull-Allan Weber Sanfiorenzo</h6>
+            </div>
+            <div style="width:40%;float:left; font-size:1rem">
+                <dl style="margin: 2em">
+                    <dt>
+                    <h2>Background</h2></dt>
+                    <dl>Birthplace:</dl>
+                    <dd>Bayamon, Puerto Rico</dd>
+                    <dl>Education:</dl>
+                    <dd>2000 MIT Graduate</dd>
+                    <dl>Work:</dl>
+                    <dd><a href="http://monkeykodeagency.com" target="_blank">Monkey Kode Agency</a>, <a
+                            href="http://danceraccess.com">Danceraccess</a></dd>
+                    <dl>Languages:</dl>
+                    <dd>PHP, JS; Technically Full Stack, but more Front End Dev</dd>
+                    <dl>Curious Facts:
+                        <ol style="padding:0.5em 1em 1em;">
+                            <li>Was obsessed with building 2000 piece jigsaw puzzles when i was 4.</li>
+                            <li>Went to Space Camp and witnessed my first tornado at 11. I didn't fly away, Thank God.
+                            </li>
+                            <li>Took hiatus to dance professionally. Went on tour dancing with Madonna.</li>
+                        </ol>
+                    </dl>
+
+                </dl>
+
+
+            </div>
+        </section>
+        <section>
+            <img style="max-height: 500px" src="images/madge.jpg" alt="">
+            <h3>Dancing Coder</h3>
+
+        </section>
+        <section>
+            <section>
+                <h1>Basics</h1>
+            </section>
+
+            <section>
+                <div class="col">
+                    <div class="col-2">
+                        <h3>Elements</h3>
+                        <ul>
+                            <li>Inspect Element. Settings Dark or Light Theme.</li>
+                            <li>"Select Element to inspect it." View attributes</li>
+                            <ul>
+                                <li>Styles</li>
+
+                                <li>Computed Styles</li>
+                                <ul>
+                                    <li>Box Model with spacing</li>
+                                    <li>Click arrow to take you to class</li>
+                                    <li>View css parents and overridden classes</li>
+                                </ul>
+                                <li>Event Listeners</li>
+                                <ul>
+                                    <li>Tells you events associated with element</li>
+                                    <li>Click to go to declaration of listener in file</li>
+                                    <li>Toggle Framework and parent listeners</li>
+                                </ul>
+                                <li>Debugger DOM breakpoints</li>
+                                <ul>
+                                    <li>Lists all breakpoints added on chrome debugger</li>
+                                </ul>
+                                <li>Object Properties: All js properties associated with element</li>
+                            </ul>
+                            <li>Drag and drop and delete elements.</li>
+                            <li>Add Attribute, Edit HTML</li>
+                            <li>Scroll to bring into view</li>
+                        </ul>
+                    </div>
+                    <div class="col-2">
+                        <img src="images/props.png" alt="">
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <div class="col">
+
+                    <div class="col-2">
+                        <h3>Styles</h3>
+                        <ul>
+                            <li>Disable rules for active elements</li>
+                            <li>Edit rules for pseudo classes</li>
+                            <li>Link to css source</li>
+                            <li>Live CSS edit. Add CSS class with '+'</li>
+                        </ul>
+                    </div>
+                    <div class="col-2">
+                        <img src="images/hover.png" alt="">
+                    </div>
+                </div>
+
+            </section>
+            <section>
+                <h3>Cool Style Editors</h3>
+                <div class="col">
+                    <div class="col-3">
+                        <ul>
+
+                            <li>CSS transitions editor</li>
+                        </ul>
+                        <img src="images/animation.png" alt="">
+                    </div>
+                    <div class="col-3">
+                        <ul>
+                            <li>Color Picker. Pick any color from anywhere on the page.</li>
+
+                        </ul>
+                        <img src="images/colorpicker.png" alt=""/>
+
+
+                    </div>
+                    <div class="col-3">
+                        <ul>
+                            <li>Text Shadow Editor</li>
+                        </ul>
+                        <img src="images/shadoweditor.png" alt=""/>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <div class="col">
+                    <div class="col-2"><h3>Responsive Views</h3>
+                        <ul>
+                            <li>Toggle Device Views. Preset mobile devices + Responsive.</li>
+                            <li>View Media Queries</li>
+                            <li>Capture Screenshot</li>
+                            <li>Add Network Throttling</li>
+                            <li>Device Emulation Sensors</li>
+                        </ul>
+                    </div>
+                    <div class="col-2"><img src="images/responsive.png" alt=""></div>
+                </div>
+            </section>
+            <section>
+                <div class="col">
+                    <div class="col-2">
+                        <h3> Coverage</h3>
+                        <ul>
+                            <li>See unused js and css for your app.</li>
+                            <li>Only available in Chrome Canary</li>
+                        </ul>
+                    </div>
+                    <div class="col-2">
+                        <img src="images/coverage.png" alt="">
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <div class="col">
+                    <div class="col-2">
+                        <h3>Sources</h3>
+                        <ul>
+                            <li>Edit File</li>
+                            <li>Command Save to Browser cache.</li>
+                            <li>Local Modifications history</li>
+                            <ul>
+                                <li>Apply Revision content</li>
+                                <li>Revert</li>
+                                <li>'Save as' to original file</li>
+                            </ul>
+                        </ul>
+                    </div>
+                    <div class="col-2">
+                        <img src="images/sources.png" alt="">
+                    </div>
+                </div>
+            </section>
+            <section>
+                <div class="col">
+                    <div class="col-2">
+                        <h3>Workspaces</h3>
+
+                        <ul>
+                            <li>Add Folder to Workspace. You can just drag and drop and automatically matches your local
+                                folder to browser.
+                            </li>
+                            <li>It will detect other file types like typescript ans sass.</li>
+                            <li>Now you'll be able to save your changes locally and use the browser like an IDE.</li>
+
+                        </ul>
+                    </div>
+                    <div class="col-2">
+                        <img src="images/mapping.png" alt="">
+                    </div>
+                </div>
+            </section>
+
+
+            <section>
+                <div class="col">
+                    <div class="col-2">
+                        <h3>Search</h3>
+                        <ul>
+                            <li>Search all files. (Command + P)</li>
+                            <li>Go to Line: (Command + L)</li>
+                            <li>Find in file. (Command + F)</li>
+
+                        </ul>
+                    </div>
+                    <div class="col-2">
+                        <img src="images/p.png" alt="">
+                        <img src="images/find.png" alt="">
+                    </div>
+                </div>
+            </section>
+
+
+        </section>
+        <section>
+            <section>
+                <h1>Console</h1>
+            </section>
+            <section>
+                <div class="col">
+                    <div class="col-2">
+                        <h3>Console Window</h3>
+                        <ul>
+                            <li>'Esc' to open and close</li>
+                            <li>Bling selection</li>
+                            <ul>
+                                <li>$() – Short for document.querySelector(). Returns the first element, matching a CSS
+                                    selector ( e.g. $(‘div’) will return the first div element in the page).; If using
+                                    jQuery returns array: $('#title')[0]
+                                </li>
+                                <li>$$() – Short for document.querySelectorAll(). Returns an array of elements that
+                                    match the given CSS selector.
+                                </li>
+                                <li>$0 – $4 – A history of the five most recent DOM elements that you’ve selected in the
+                                    elements panel, $0 being the latest.
+                                </li>
+                            </ul>
+                            <li>Autocompletion. Substring Completions.</li>
+                            <li>ES6 Ready - try new features here</li>
+                            <li>Read line smart enter.</li>
+                            <li>Multiple Cursors (Hold Command)</li>
+                            <li>Syntax Highlighting</li>
+                            <li>Select Next/Prev (Command + D)</li>
+                            <li>Preserve Log</li>
+
+
+                        </ul>
+
+                    </div>
+                    <div class="col-2">
+                        <img src="images/console3.png" alt="">
+                    </div>
+                </div>
+            </section>
+            <section>
+                <div class="col">
+                    <div class="col-2">
+                        <h3>Console Debug</h3>
+                        <ul>
+
+                            <li>Use 'debugger' to start Chrome debugger.</li>
+                            <li>Handy console methods</li>
+                            <ul>
+                                <li>console.log()</li>
+                                <!--<li>console.dir()</li>-->
+                                <!--<li>console.table() - </li>-->
+                                <li>console.error(msg)</li>
+                                <li>console.assert()</li>
+                                <li>console.trace()</li>
+                                <li>console.group(); <br>console.groupCollapse()</li>
+                                <li>console.time(label); <br>console.timeEnd(label)</li>
+
+                            </ul>
+
+                        </ul>
+                    </div>
+                    <div class="col-2">
+                        <img src="images/consolelog.png" alt="">
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <div class="col">
+                    <div class="col-2">
+                        <h3>Snippets</h3>
+                        <ul>
+                            <li>Sources->Snippets. Add new snippets and save them to your browser. Handy to ckeep
+                                around.
+                            </li>
+                            <li>Command + enter to play your snippet.</li>
+                            <li>For available snippets google 'Devtools snippets.'</li>
+                        </ul>
+                    </div>
+                    <div class="col-2">
+                        <img src="images/snippets.png" alt="">
+                    </div>
+                </div>
+            </section>
+
+
+            <section>
+                <div class="col">
+                    <div class="col-2">
+                        <h3>JS errors</h3>
+                        <ul>
+                            <li>Display error</li>
+                            <li>Stack Trace</li>
+                        </ul>
+
+                    </div>
+                    <div class="col-2">
+                        <img src="images/stack.png" alt="">
+                    </div>
+                </div>
+            </section>
+
+
+        </section>
+
+
+        <section>
+            <section>
+                <h1>Network</h1>
+            </section>
+            <section>
+                <div class="col">
+                    <div class="col-2">
+                        <h3>Resources</h3>
+                        <ul>
+                            <li>See resource's attributes:</li>
+                            <ul>
+                                <li>Name</li>
+                                <li>Status Code</li>
+                                <li>File Type</li>
+                                <li>What initiated the request</li>
+                                <li>Size</li>
+                                <li>How long it took. (When it was requested)</li>
+                            </ul>
+                            <li>Waterfall</li>
+                            <ul>
+                                <li>Colored by the file type</li>
+                                <li>Hover to see TTF (Time to First Byte)</li>
+                                <li>Hover to see how long it took to download</li>
+                                <li>Zoom into area</li>
+                                <li>Simulate Throttling</li>
+                                <li>Simulate Offline</li>
+                            </ul>
+                            <li>Time</li>
+                            <ul>
+                                <li>Check to see total bytes on page</li>
+                                <li>(Purple Line) When the browser finished parsing your html.</li>
+                                <li>(Red Line) When all the resources have finished loading.</li>
+                            </ul>
+                            <li>Disable cache (Also in settings)</li>
+
+                        </ul>
+
+
+                    </div>
+                    <div class="col-2">
+                        <img src="images/resources.png" alt="">
+                    </div>
+
+            </section>
+            <section>
+                <div class="col">
+                    <div class="col-2">
+                        <h3>Resources Detail</h3>
+                        <ul>
+                            <li>Click on file to see information about request:</li>
+                            <ul>
+                                <li>Headers</li>
+                                <li>Preview</li>
+                                <li>Response</li>
+                                <li>Cookies</li>
+                                <li>Timing</li>
+                            </ul>
+                        </ul>
+                    </div>
+                    <div class="col-2">
+                        <img src="images/headers.png" alt="">
+                    </div>
+                </div>
+
+            </section>
+            <section>
+                <div class="col">
+                    <div class="col-2">
+                        <h3>Screenshots</h3>
+                        <p>Click on on camera and reload with Command + R</p>
+                    </div>
+                    <div class="col-2">
+                        <img src="images/screenshots.png" alt="">
+                    </div>
+                </div>
+
+            </section>
+        </section>
+        <section>
+            <section><h1>Debugging JS</h1></section>
+            <section>
+
+                <div style="display:flex;flex-flow:row no-wrap">
+                    <div style="flex:1 50%">
+                        <h3>Pretty Print</h3>
+                        <ul>
+                            <li>Click on brackets to expand minified code</li>
+                        </ul>
+                    </div>
+                    <div style="flex:1 50%">
+                        <img src="images/pretty.png" alt="">
+                    </div>
+                </div>
+            </section>
+            <section>
+                <div class="col">
+                    <div class="col-2">
+                        <h3>Pause on Exceptions</h3>
+                        <ul>
+                            <li>Click pause to have debugger stop on refresh</li>
+                            <li>Hover over var to see value</li>
+                            <li>Click Play to continue</li>
+                            <li>Click Step Over/Step Into/Step Out function call</li>
+                            <li>Call Stack - see js stack trace</li>
+                        </ul>
+
+                    </div>
+                    <div class="col-2">
+                        <img src="images/deb.png" alt="">
+                    </div>
+                </div>
+            </section>
+            <section>
+                <div class="col">
+                    <div class="col-2">
+                        <h3>Breakpoints</h3>
+                        <ul>
+                            <li>Add breakpoints to JS</li>
+                            <li>Inline breakpoints will automatically be detected.</li>
+                            <li>Blackbox Scripts</li>
+                            <li>Break on... (Break on non-js actions)</li>
+                            <ul>
+                                <li>Subtree modifications</li>
+                                <li>Attribute modifications</li>
+                                <li>Node Removal</li>
+                            </ul>
+
+                        </ul>
+                        <img src="images/breakon.png" alt="">
+                    </div>
+                    <div class="col-2">
+                        <img src="images/breakpoints.png" alt="">
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <div class="col">
+                    <div class="col-2">
+                        <h3>Local Storage</h3>
+                        <ul>
+                            <li>Under Application manage your local storage variables</li>
+                        </ul>
+                        <p>&nbsp;</p>
+                        <h3>Cookies</h3>
+                        <ul>
+                            <li>Under Application manage your cookies</li>
+
+                        </ul>
+
+                    </div>
+                    <div class="col-2">
+                        <img src="images/localstorge.png" alt="">
+                        <img src="images/cookies.png" alt="">
+                    </div>
+                </div>
+            </section>
+        </section>
+        <section>
+            <section><h1>Profiles</h1></section>
+            <section>
+                <div class="col">
+                    <div class="col-2">
+                        <h3>Profiler</h3>
+                        <ul>
+                            <li>Go to Performance click record button or just reload with command + R. Interact with
+                                page. Click stop
+                            </li>
+                            <ul>
+                                <li>View FPS (Frames per second). Anything below 60fps is considered non-performant</li>
+                                <li>Zoom in to get more details</li>
+                                <li>Click to record screenshots. Hover to view.</li>
+                            </ul>
+                        </ul>
+                    </div>
+                    <div class="col-2">
+                        <img src="images/fps.png" alt="">
+                    </div>
+                </div>
+            </section>
+            <section>
+                <div class="col">
+                    <div class="col-2">
+                        <h3>CPU JS Profiler</h3>
+                        <small>Check how long js function operations are taking.</small>
+                        <ul>
+                            <li>Go to Javascript Profiler. Click record and reload or interact with page. Stop.</li>
+                            <ul>
+                                <li>Tree or Chart format.</li>
+                                <li>Expand down to function calls to see what's responsible for slowing down your
+                                    function. Chart format, zoom in to view, and hover for details.
+                                </li>
+                                <li>Try again and record new profile.</li>
+                                <li>Save profile locally.</li>
+                            </ul>
+                        </ul>
+                    </div>
+                    <div class="col-2">
+                        <img src="images/fps2.png" alt="">
+                    </div>
+                </div>
+            </section>
+            <section>
+                <div class="col">
+                    <div class="col-2">
+                        <h3>Timeline View</h3>
+                        <em>All in 1 profiler. Just click record button and zoom into area.</em>
+                        <ul>
+                            <li>View Summary of everything:</li>
+                            <ul>
+                                <li>Info on network request.</li>
+                                <li>FPS of section</li>
+                                <li>Under Main, chart view of browser procedures color coded.</li>
+                                <ul>
+                                    <li>Parsing HTML - blue</li>
+                                    <li>JS Execution - yellow</li>
+                                    <li>Loading - light blue</li>
+                                    <li>Rendering - purple</li>
+                                </ul>
+                                <li>Memory Allocation</li>
+                                <li>Summary</li>
+                                <ul>
+                                    <li>Summary- chart with summary of browser procedures.</li>
+                                    <li>Bottom up- List of js function calls, longest at the top.</li>
+                                    <li>Call Tree- Tree view of how each browser procedure is being executed.</li>
+                                    <li>Event Log</li>
+                                </ul>
+                            </ul>
+                        </ul>
+                    </div>
+                    <div class="col-2">
+                        <img src="images/timeline.png" alt="">
+                    </div>
+                </div>
+            </section>
+            <section>
+                <div class="col">
+                    <div class="col-2">
+                        <h3>Memory</h3>
+                        <em>Identify and manage memory leaks</em>
+                        <ul>
+                            <li>Narrow down into your code and see if there are any memory leaks. Go to Memory Panel.
+                            </li>
+                            <li>Click on object to see memory size.</li>
+                            <li>Expand down the function calls to see what's causing the function delay.</li>
+                            <li>Memory Profile Types</li>
+                            <ul>
+                                <li>Heap Sanpshots</li>
+                                <ul>
+                                    <li>Make a few Profiles</li>
+                                    <li>Choose Comparison view</li>
+                                </ul>
+                                <li>Record Allocation Profile - memory used by functions</li>
+                                <li>Record Allocation Time -heap allocation over time</li>
+
+                            </ul>
+                        </ul>
+                    </div>
+                    <div class="col-2">
+                        <img src="images/memoryleaks.png" alt="">
+                    </div>
+                </div>
+            </section>
+        </section>
+        <section>
+            <section><h1>Layouts</h1></section>
+            <section>
+                <div class="col">
+                    <div class="col-2">
+                        <h3>Layers</h3>
+                        <ul>
+                            <li>Inspect if your dom elements are being placed in separate layers (which is better for
+                                DOM
+                                rendering)
+                            </li>
+                            <li>3D view with panning and zoom.</li>
+                        </ul>
+                    </div>
+                    <div class="col-2">
+                        <img src="images/paints.png" alt="">
+                    </div>
+                </div>
+            </section>
+            <section>
+                <div class="col">
+                    <div class="col-2">
+                        <h3>Paint Profiler</h3>
+                        <ul>
+                            <li>Narrow down exactly what is being painted when and how much work the browser is doing.
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-2">
+                        <img src="images/paintp.png" alt="">
+                    </div>
+                </div>
+            </section>
+            <section>
+
+                <div class="col">
+                    <div class="col-2">
+                        <h3>Rendering</h3>
+                        <ul>
+                            <li>
+                                Paint Flashing - Check what's being repainted.
+                            </li>
+                            <li>
+                                Layer Borders - Outline the layer area.
+                            </li>
+                            <li>
+                                FPS Meter - Check the frames per second live.
+                            </li>
+                            <li>
+                                Scrolling Performance Issues - Tells you which elements can slow down scrolling.
+                            </li>
+                            <li>Emulate things like "print" media.</li>
+                        </ul>
+                    </div>
+                    <div class="col-2">
+                        <img src="images/rendering.png" alt="">
+                    </div>
+                </div>
+            </section>
+
+        </section>
+        <section>
+            <section><h1>Performance</h1></section>
+            <section>
+                <div class="col">
+                    <div class="col-2">
+                        <h3>Audits</h3>
+                        <ul>
+                            <li>Audit your site.</li>
+                            <li>Get page speed recommendations for improving your site.</li>
+                        </ul>
+                    </div>
+                    <div class="col-2"><img src="images/audit.png" alt=""></div>
+                </div>
+            </section>
+            <section>
+                <div class="col">
+                    <div class="col-2">
+                        <h3>Network Throttling</h3>
+                        <ul>
+                            <li>Test how your site performs in different network situations.</li>
+                            <li>Simulate a mobile experience.</li>
+                            <li>Simulate Offline Experience.</li>
+                            <li>Choose specific User Agent.</li>
+                            <li>Sensors tab for motion sensitive debugging.</li>
+                        </ul>
+                    </div>
+                    <div class="col-2">
+                        <img src="images/throttling2.png" alt="">
+                    </div>
+                </div>
+            </section>
+            <section>
+                <div class="col">
+                    <div class="col-2">
+                        <h3>HTTPS</h3>
+                        <ul>
+                            <li>View certificate information on Security Panel.</li>
+                            <li>Errors on your certificate and other details</li>
+                        </ul>
+                    </div>
+                    <div class="col-2"><img src="images/security.png" alt=""></div>
+                </div>
+            </section>
+            <section>
+                <div class="col">
+                    <div class="col-2">
+                        <h3>Lighthouse</h3>
+                        <ul>
+                            <li>Chrome Extension to check performance on your page.</li>
+                            <li>Made to debug PWA (Progressive Web Apps).</li>
+                            <li>Score</li>
+                            <ul>
+                                <li>It will score your app according to the <a
+                                        href="https://developers.google.com/web/progressive-web-apps/checklist">PWA
+                                    Checklist</a></li>
+                                <li>Look into Best Practices</li>
+                                <li>Performance Metrics</li>
+                                <li>Accessibility</li>
+                                <li>Offline experience</li>
+                                <li>Mobile friendliness</li>
+                                <li>JS Audit Developer excellence</li>
+                            </ul>
+                        </ul>
+                    </div>
+                    <div class="col-2">
+                        <img src="images/lighthouse.png" alt="">
+                    </div>
+                </div>
+            </section>
+        </section>
+        <section>
+            <div class="col">
+                <div class="col-2">
+                    <h2>Helpful links</h2>
+                    <ul>
+                        <li><a href="https://developer.chrome.com/devtools" target="_blank">Chrome DevTools Overview</a></li>
+                        <li><a href="https://developers.google.com/web/tools/chrome-devtools/javascript/" target="_blank">
+                            Get Started with Debugging JavaScript in Chrome DevTools</a></li>
+                        <li>
+                            <a href="https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/timeline-tool" target="_blank">How to Use the Timeline Tool</a></li>
+                        <li><a href="https://scotch.io/tutorials/debugging-javascript-with-chrome-devtools-breakpoints" target="_blank">Debugging JavaScript with Chrome DevTools Breakpoints</a></li>
+                        <li><a href="https://www.youtube.com/playlist?list=PLVUliVBcvz1n_DOgB4lb06G_Dc5fQVRRv" target="_blank">Chrome Dev Tools YouTube show: The Breakpoint (Older)</a></li>
+                    </ul>
+                </div>
+                <div class="col-2">
+                    <h6>Thank you!</h6>
+                    <p><a href="mailto:jull@monkeykodeagency.com" target="_blank">jull@monkeykodeagency.com</a><br>
+                        <a href="https://monkeykodeagency.com" target="_blank">Monkey Kode Agency</a></p>
+                </div>
+            </div>
+
+
+        </section>
+
+
+    </div>
+</div>
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.js"></script>
+
+<script>
+    // More info about config & dependencies:
+    // - https://github.com/hakimel/reveal.js#configuration
+    // - https://github.com/hakimel/reveal.js#dependencies
+    Reveal.initialize({
+        width: 1200,
+        height: 900,
+        dependencies: [
+            {src: 'plugin/markdown/marked.js'},
+            {src: 'plugin/markdown/markdown.js'},
+            {src: 'plugin/notes/notes.js', async: true},
+            {
+                src: 'plugin/highlight/highlight.js', async: true, callback: function () {
+                hljs.initHighlightingOnLoad();
+            }
+            }
+        ]
+    });
+</script>
+</body>
+</html>

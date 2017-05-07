@@ -1,0 +1,20 @@
+.reveal p, .reveal em, .reveal strong {
+  font-size: 1.5rem; }
+.reveal ul li {
+  font-size: 1.25rem; }
+.reveal .col {
+  display: flex;
+  flex-flow: row nowrap; }
+  .reveal .col .col-2 {
+    flex: 1 50%; }
+  .reveal .col .col-3 {
+    flex: 1 33%; }
+.reveal small {
+  text-align: left; }
+.reveal pre {
+  font-size: 1rem; }
+.reveal .img-responsive {
+  max-width: 100%;
+  height: auto; }
+
+/*# sourceMappingURL=custom.css.map */
