@@ -1,0 +1,46 @@
+html , * {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: $black;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  color: white;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+  &:hover {
+    color: $daffodil;
+  }
+}
+
+
+h1 {
+  font-weight: 100;
+}
+
+ul.inline > li {
+  display: inline-block;
+
+}
+#app {
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+}
+
+.container {
+
+}
+
+.text-right {
+  text-align: right;
+}
+
+
