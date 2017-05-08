@@ -26,8 +26,15 @@ h1 {
   font-weight: 100;
 }
 
-ul.inline > li {
-  display: inline-block;
+ul.inline {
+  //display: flex;
+  //flex-flow: row nowrap;
+  li {
+    //flex:1 auto;
+    display: inline-block;
+  }
+
+
 
 }
 #app {

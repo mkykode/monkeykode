@@ -32,6 +32,6 @@ module.exports = merge(baseWebpackConfig, {
       inject: true
     }),
     new FriendlyErrorsPlugin(),
-    new FaviconsWebpackPlugin('../src/assets/images/logo.png')
+    new FaviconsWebpackPlugin('./src/assets/images/logo.png')
   ]
 })
