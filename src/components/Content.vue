@@ -36,7 +36,7 @@
 
     border-radius: 10px;
     background-color: rgba(0, 0, 0, .25);
-    padding: 4em 2em;
+    padding: 4em 2em 2em;
     @media only screen and (max-width: 758px) {
       margin: 0 5%;
     }
