@@ -18,6 +18,6 @@
     font-size: 1rem;
     font-weight: 300;
     padding: 0 2.5%;
-    margin-bottom: 2.5em;
+    margin-bottom: 1.5em;
   }
 </style>
