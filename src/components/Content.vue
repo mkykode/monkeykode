@@ -21,8 +21,8 @@
         <h4>Talks</h4>
 
         <ul>
-          <li><a href="/http2" target="_blank">Moving towards performance with HTTP/2</a></li>
-          <li><a href="/devtools" target="_blank">Deep Dive into Chrome Dev Tools</a></li>
+          <li><a href="https://mkykode.github.io/http2" target="_blank">Moving towards performance with HTTP/2</a></li>
+          <li><a href="https://mkykode.github.io/devtools" target="_blank">Deep Dive into Chrome Dev Tools</a></li>
         </ul>
       </div>
 
