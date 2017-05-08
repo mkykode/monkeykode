@@ -6,9 +6,9 @@
       <h1>Monkey Kode</h1>
       <h2>Jull Weber</h2>
       <div class="talks">
-        <h4>Talks</h4>
+        <h4 id="talks-heading">Talks</h4>
 
-        <ul>
+        <ul class="talks-list">
           <li><a href="https://mkykode.github.io/http2" target="_blank">Moving towards performance with HTTP/2</a></li>
           <li><a href="https://mkykode.github.io/devtools" target="_blank">Deep Dive into Chrome Dev Tools</a></li>
         </ul>
@@ -25,8 +25,19 @@
   export default {
     components: {
       Logo
+    },
+    mounted () {
+      const talks = document.getElementsByClassName('talks-list')
+      const talksHeading = document.getElementById('talks-heading')
+      talks[0].addEventListener('mouseover', () => {
+        talksHeading.classList.add('hover')
+      })
+      talks[0].addEventListener('mouseout', () => {
+        talksHeading.classList.remove('hover')
+      })
     }
   }
+
 </script>
 
 <style lang="scss">
@@ -66,7 +77,13 @@
         left: 0;
         top: 0;
         transform: rotate(-90deg);
+        transition: all .25s ease-out;
         text-align: right;
+        &.hover {
+          letter-spacing: 4px;
+          transition: all .25s ease-out;
+          transform: translateX(-10%) rotate(-90deg);
+        }
       }
       ul > li {
         /*margin-left: 20%;*/
