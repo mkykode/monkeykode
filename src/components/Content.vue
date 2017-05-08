@@ -4,7 +4,7 @@
       <logo></logo>
       <div class="clearfix"></div>
       <h1>Monkey Kode</h1>
-      <h2>Jull Weber</h2>
+      <h2 id="my-name">Jull Weber</h2>
       <div class="talks">
         <h4 id="talks-heading">Talks</h4>
 
@@ -56,6 +56,11 @@
     }
     h2 {
       font-weight: 400;
+      transition: letter-spacing .25s ease-out;
+      &:hover {
+        letter-spacing: 4px;
+        transition: letter-spacing .25s ease-out;
+      }
     }
     small {
       font-size: .95rem;
@@ -92,11 +97,11 @@
         list-style: circle;
         padding-top: 3px;
         a {
-          transition: all .25s ease-out;
+          transition: transform .25s ease-out;
           &:hover {
             color: white;
             transform: translateX(2%) skew(-9deg);
-            transition: all .25s ease-out;
+            transition: transform .25s ease-out;
           }
         }
       }
