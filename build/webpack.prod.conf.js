@@ -8,6 +8,7 @@ var CopyWebpackPlugin = require('copy-webpack-plugin')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
+var FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 
 var env = process.env.NODE_ENV === 'testing'
   ? require('../config/test.env')
@@ -48,6 +49,7 @@ var webpackConfig = merge(baseWebpackConfig, {
         safe: true
       }
     }),
+    new FaviconsWebpackPlugin('./src/assets/images/logo.png'),
     // generate dist index.html with correct asset hash for caching.
     // you can customize output by editing /index.html
     // see https://github.com/ampedandwired/html-webpack-plugin
@@ -57,6 +59,7 @@ var webpackConfig = merge(baseWebpackConfig, {
         : config.build.index,
       template: 'index.html',
       inject: true,
+
       minify: {
         removeComments: true,
         collapseWhitespace: true,
@@ -94,7 +97,8 @@ var webpackConfig = merge(baseWebpackConfig, {
         to: config.build.assetsSubDirectory,
         ignore: ['.*']
       }
-    ])
+    ]),
+
   ]
 })
 
