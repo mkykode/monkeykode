@@ -58,7 +58,7 @@ module.exports = function normalizeComponent (
 
 /***/ }),
 
-/***/ 16:
+/***/ 18:
 /***/ (function(module, exports) {
 
 /* -----------------------------------------------
@@ -1605,7 +1605,7 @@ window.particlesJS.load = function(tag_id, path_config_json, callback){
 
 /***/ }),
 
-/***/ 26:
+/***/ 30:
 /***/ (function(module, exports) {
 
 /**
@@ -1639,7 +1639,7 @@ module.exports = function listToStyles (parentId, list) {
 
 /***/ }),
 
-/***/ 27:
+/***/ 31:
 /***/ (function(module, exports) {
 
 var g;
@@ -1667,7 +1667,7 @@ module.exports = g;
 
 /***/ }),
 
-/***/ 28:
+/***/ 32:
 /***/ (function(module, exports) {
 
 /*
@@ -1750,7 +1750,7 @@ function toComment(sourceMap) {
 
 /***/ }),
 
-/***/ 29:
+/***/ 33:
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -1769,7 +1769,7 @@ if (typeof DEBUG !== 'undefined' && DEBUG) {
   ) }
 }
 
-var listToStyles = __webpack_require__(26)
+var listToStyles = __webpack_require__(30)
 
 /*
 type StyleObject = {
@@ -1976,7 +1976,7 @@ function applyToTag (styleElement, obj) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__vue_particles_vue__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__vue_particles_vue__ = __webpack_require__(23);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__vue_particles_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__vue_particles_vue__);
 /* eslint-disable */
 
@@ -11613,9 +11613,9 @@ Vue$3.compile = compileToFunctions;
 
 /* harmony default export */ __webpack_exports__["a"] = (Vue$3);
 
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(27)))
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(31)))
 
 /***/ })
 
 });
-//# sourceMappingURL=vendor.8f0fe6237037429c9e4c.js.map
+//# sourceMappingURL=vendor.ba64f4e794dcb69b158e.js.map

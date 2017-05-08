@@ -1,21 +1,9 @@
 <template>
   <div>
     <main>
-      <div id="logo">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 27.51 58.67">
-          <title>Logo</title>
-          <g id="Layer_2" data-name="Layer 2">
-            <g id="face">
-              <rect class="cls-1" x="1.5" y="1.5" width="24.51" height="55.67" rx="4" ry="4"/>
-              <rect class="cls-2" x="1.9" y="22.73" width="23.82" height="10.8" rx="2" ry="2"/>
-              <ellipse class="cls-3" cx="8.81" cy="27.95" rx="4.61" ry="4.91"/>
-              <ellipse class="cls-3" cx="18.82" cy="27.95" rx="4.55" ry="4.91"/>
-            </g>
-          </g>
-        </svg>
-      </div>
-      <h1>Monkey Kode <br></h1>
-      <!--<small>-&#45;&#45; playground -&#45;&#45;</small>-->
+      <logo></logo>
+      <div class="clearfix"></div>
+      <h1>Monkey Kode</h1>
       <h2>Jull Weber</h2>
       <div class="talks">
         <h4>Talks</h4>
@@ -32,7 +20,13 @@
 </template>
 
 <script>
-  export default {}
+  import Logo from './Logo.vue'
+
+  export default {
+    components: {
+      Logo
+    }
+  }
 </script>
 
 <style lang="scss">
@@ -59,38 +53,6 @@
 
     }
 
-    #logo {
-      display: flex;
-      flex-flow: row nowrap;
-      justify-content: center;
-      align-items: center;
-      svg {
-        flex: 1 100%;
-        max-width: 50px;
-        transition: transform .25s ease-out;
-        &:hover {
-          transform: rotate(180deg);
-          transition: transform .25s ease-out;
-        }
-      }
-      .cls-1, .cls-2, .cls-3 {
-        fill: none;
-        stroke: #fff;
-        stroke-miterlimit: 10;
-      }
-
-      .cls-1 {
-        stroke-width: 1px;
-      }
-
-      .cls-2 {
-        stroke-width: 1px;
-      }
-
-      .cls-3 {
-        stroke-width: 1px;
-      }
-    }
     .talks {
       position: relative;
       margin-top: 9.5%;
@@ -113,13 +75,16 @@
         list-style: circle;
         padding-top: 3px;
         a {
+          transition: all .25s ease-out;
           &:hover {
             color: white;
-            text-decoration: underline;
+            transform: translateX(2%) skew(-9deg);
+            transition: all .25s ease-out;
           }
         }
       }
     }
+
   }
 
 
