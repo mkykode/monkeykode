@@ -2,7 +2,7 @@
   <div>
     <header>
       <ul class="inline text-right">
-        <li><a href="https://monkeykodeagency.com/built/" target="_blank">work</a></li>
+        <li><a href="http://monkeykodeagency.com/built/" target="_blank">work</a></li>
       </ul>
     </header>
 

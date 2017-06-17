@@ -3,7 +3,7 @@
     <footer>
       <ul class="inline">
         <li><a href="mailto:jull@monkeykodeagency.com">email me</a></li>
-        <li><a href="https://www.monkeykodeagency.com" target="_blank">Monkey Kode Agency</a></li>
+        <li><a href="http://www.monkeykodeagency.com" target="_blank">Monkey Kode Agency</a></li>
         <li><a href="https://github.com/mkykode" target="_blank">github</a></li>
       </ul>
     </footer>
