@@ -11,6 +11,7 @@
         <ul class="talks-list">
           <li><a href="https://mkykode.github.io/http2" target="_blank">Moving towards performance with HTTP/2</a></li>
           <li><a href="https://mkykode.github.io/devtools" target="_blank">Deep Dive into Chrome Dev Tools</a></li>
+          <li><a href="https://mkykode.github.io/cssgrids" target="_blank">CSS Grids Deep Dive</a></li>
         </ul>
       </div>
 

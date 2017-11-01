@@ -6,6 +6,7 @@ import App from './App'
 import 'normalize-css/normalize.css'
 import './assets/main.scss'
 import VueParticles from 'vue-particles'
+
 Vue.use(VueParticles)
 
 Vue.config.productionTip = false
