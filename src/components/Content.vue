@@ -81,7 +81,7 @@
         position: absolute;
         text-transform: uppercase;
         left: 0;
-        top: 0;
+        top: 15%;
         transform: rotate(-90deg);
         transition: all .25s ease-out;
         text-align: right;
